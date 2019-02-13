@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2018-08-27T17:41:44Z</date>
+    <date>2019-02-13T15:58:00Z</date>
     <groups>
         <group>
             <name>Templates SNMP Devices</name>
@@ -2079,7 +2079,7 @@ The type of data returned by the associated entPhySensorValue object.</descripti
                             <history>90d</history>
                             <trends>365d</trends>
                             <status>0</status>
-                            <value_type>0</value_type>
+                            <value_type>3</value_type>
                             <allowed_hosts/>
                             <units>B</units>
                             <snmpv3_contextname/>
@@ -2247,7 +2247,7 @@ The type of data returned by the associated entPhySensorValue object.</descripti
                             <history>90d</history>
                             <trends>365d</trends>
                             <status>0</status>
-                            <value_type>0</value_type>
+                            <value_type>3</value_type>
                             <allowed_hosts/>
                             <units>B</units>
                             <snmpv3_contextname/>
@@ -2563,10 +2563,10 @@ The type of data returned by the associated entPhySensorValue object.</descripti
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Palo Alto:hrProcessorLoad2.last(0)}&gt;70</expression>
+            <expression>{Template Palo Alto:hrProcessorLoad2.min(5)}&gt;70</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
-            <name>Data plane CPU usage on {HOSTNAME} is ({ITEM.LASTVALUE}) and is too high</name>
+            <name>Data plane CPU usage on {HOSTNAME} is greater than 70% for 5min</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
@@ -2579,14 +2579,14 @@ The type of data returned by the associated entPhySensorValue object.</descripti
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Palo Alto:hrProcessorLoad2.last(0)}&gt;95</expression>
+            <expression>{Template Palo Alto:hrProcessorLoad2.min(5)}&gt;90</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
-            <name>Data plane CPU usage on {HOSTNAME} is ({ITEM.LASTVALUE}) and is too high</name>
+            <name>Data plane CPU usage on {HOSTNAME} is greater than 90% for 5min</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
-            <status>0</status>
+            <status>1</status>
             <priority>5</priority>
             <description/>
             <type>0</type>
@@ -2634,7 +2634,7 @@ The type of data returned by the associated entPhySensorValue object.</descripti
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
-            <status>0</status>
+            <status>1</status>
             <priority>4</priority>
             <description/>
             <type>0</type>
@@ -2643,10 +2643,10 @@ The type of data returned by the associated entPhySensorValue object.</descripti
             <tags/>
         </trigger>
         <trigger>
-            <expression>{Template Palo Alto:hrProcessorLoad1.last(0)}&gt;95</expression>
+            <expression>{Template Palo Alto:hrProcessorLoad1.sum(#4)}&gt;360</expression>
             <recovery_mode>0</recovery_mode>
             <recovery_expression/>
-            <name>Management plane CPU usage on {HOSTNAME} is ({ITEM.LASTVALUE}) and is too high</name>
+            <name>Management plane CPU usage on {HOSTNAME} is greater than 90% for last 4 readings</name>
             <correlation_mode>0</correlation_mode>
             <correlation_tag/>
             <url/>
